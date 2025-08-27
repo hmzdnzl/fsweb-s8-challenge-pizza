@@ -746,7 +746,7 @@ axios.post("https://reqres.in/api/pizza", siparisOzeti, {
   <SiparisNotuBaslik>Sipariş Notu</SiparisNotuBaslik>
   <IsimAlani>İsminiz:
     <IsimInput onChange={handleIsimChange} type="text" name="isim" placeholder="İsminizi Yazınız" />
-    <div style={{ color: "red" }}>{isim.length < 3 && isim.length > 0 ? "İsim en az 3 harf olmalıdır." : null}</div>
+    <div id="isim-hata" style={{ color: "red" }}>{isim.length < 3 && isim.length > 0 ? "İsim en az 3 harf olmalıdır." : null}</div>
   </IsimAlani>
   <SiparisNotuInput id="siparis-notu" placeholder="Siparişine eklemek istediğin bir not var mı?" />
 </SiparisNotuAlani>
