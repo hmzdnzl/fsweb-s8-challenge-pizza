@@ -1,0 +1,111 @@
+@media (max-width: 540px) {
+  .orderpizzapage {
+    width: 100%;
+    height: 1917px; ;
+    box-sizing: border-box;
+    overflow-x: hidden;    
+  }
+  #navlinks {
+    margin-left: 20px;
+  }
+#orderpagelogo {
+  margin: 80px 50px;
+  width: 80%;
+  max-width: 400px;
+  aspect-ratio: 5 / 1;      /* en-boy oranı (örnek) */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#logo-container {
+  width: 100%;
+  min-height: 80px;
+  height: auto;
+}
+
+#body {
+  width: 420px;
+  padding:0 5px;
+  box-sizing: border-box;
+  
+  height: 1488px;
+}
+
+#fiyatpuanyorum {
+
+}
+
+#puanyorum {
+margin-right: 125px;
+}
+
+#aciklama {
+width: 408px;
+height: 281px;
+}
+
+#boyuthamur {
+margin-top: -40px;
+padding-right: 30px;
+padding-left: 5px;
+}
+#hamur-secimi {
+height: 30px;
+}
+
+#ekmalzemelerayazisi {
+width: 310px;
+height: 76px;
+}
+
+#ekmalzemealani {
+  display: flex;
+width: 420px;
+height: 300px;
+
+} 
+
+#siparis-notu {
+  width: 420px;
+  height: 69px;
+  margin-top: 10px;
+  margin-left: -6px;
+}
+
+#cizgi {
+  width: 420px;
+  height: 1px;
+  margin-top: 50px;
+
+}
+
+#ucretalani {
+display: flex;
+flex-direction: column;
+margin-top: 50px;
+
+}
+
+#ucrethesaplama {
+order:0;
+margin-left: -6px;
+width: 420px;
+
+}
+#siparisadetialani {
+  order: 1;
+  width: 200px;
+    height: 56px;
+    margin-top: 75px;
+    margin-left: -5px;
+}
+
+#siparis-ver-butonu {
+  order: 1;
+  width: 200px;
+  height: 56px;
+  margin-left: 213px;
+    margin-top: 40px;
+}
+}

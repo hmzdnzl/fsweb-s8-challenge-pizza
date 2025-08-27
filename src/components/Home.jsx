@@ -6,7 +6,7 @@ const TumSayfa=styled.div`
     background-image: url('/images/images-1/home-banner.png');
     background-size: cover;
     background-position: center;
-    height: 1080px;
+    height: 100vh;
     width: 1920px;
     display: flex;
     text-align: center;
@@ -18,6 +18,7 @@ const LogoButtonText=styled.div`
       align-items: center;
       width: 892px;
       height: 377px;
+      margin-top: 50px;
 `;
 const Logo=styled.div`
       background-image: url('/images/images-1/logo.svg');
@@ -27,7 +28,7 @@ const Logo=styled.div`
        width: 330px;
        margin-top: 5px;
 `;
-const Text=styled.div`
+const Text=styled.p`
        font-family: "'Roboto Condensed', sans-serif";
        font-size: 70px;
        line-height: 45px;
@@ -58,12 +59,12 @@ const Button=styled.button`
 `;
 export default function Home() {
   return (
-    <TumSayfa>
-     <LogoButtonText>
-<Logo></Logo>
-<Text>KOD ACIKTIRIR PİZZA, DOYURUR</Text>
+    <TumSayfa id="tumhomepage">
+     <LogoButtonText id="logobuttontext">
+<Logo id="logo"></Logo>
+<Text id="slogan">KOD ACIKTIRIR PİZZA, DOYURUR</Text>
 <Link to="/order">
-<Button>ACIKTIM</Button>
+<Button id="aciktim-button">ACIKTIM</Button>
 </Link>
      </LogoButtonText>
     </TumSayfa>

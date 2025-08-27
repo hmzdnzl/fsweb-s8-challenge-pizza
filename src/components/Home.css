@@ -2,4 +2,41 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+ 
+}
+
+@media (max-width: 540px) {
+  #tumhomepage {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 1094px;
+    box-sizing: border-box;
+      overflow-x: hidden;
+     overflow-y: auto; 
+  }
+  #logo {
+    
+  }
+
+  #slogan {
+    font-size: 66px;
+    line-height: 70px;
+   
+    width: 398px;
+    height: 318px;
+    letter-spacing: 1.5px;
+    margin-top: 20px;
+
+  }
+  #logobuttontext {
+    width: 398px;
+    height: 854px;
+    
+    gap: 5px;
+    margin-top: 100px;
+  }
+  #aciktim-button {
+    margin-top: 0px;
+  }
 }
