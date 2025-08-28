@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import "./OrderPizza.css"
+import { useHistory } from "react-router-dom";
 
 
 const Header = styled.header`
@@ -507,15 +508,21 @@ const ToplamTutar=styled.div`
   align-items: center;
   margin-right: 0px;
 `;
-export default function OrderPizza() {
-  const [fiyat, setFiyat] = useState("0");
-  const [secim, setSecim] = useState("");
-  const [adet, setAdet] = useState(1);
-  const [isim, setIsim] = useState("");
-  const [secilenToplam, setSecilenToplam] = useState(0);
-  const [secilenHata, setSecilenHata] = useState("");
-  const [boyut, setBoyut] = useState("");
-  const [hamur, setHamur] = useState("");
+export default function OrderPizza(props) {
+  const { fiyat, setFiyat, 
+    secim, setSecim, 
+    adet, setAdet, 
+    isim, setIsim, 
+    secilenToplam, setSecilenToplam, 
+    secilenHata, setSecilenHata, 
+    boyut, setBoyut, 
+    hamur, setHamur,
+    pizzaAdi, setPizzaAdi
+    , siparisNotu, setSiparisNotu
+    , siparisId, setSiparisId
+    , siparisTarihi, setSiparisTarihi
+  } = props;
+  const history = useHistory();
   function adetArttir() {
     setAdet(adet + 1);
   }
@@ -562,7 +569,7 @@ export default function OrderPizza() {
 function handleBoyutChange(event) {
   setBoyut(event.target.value);
 }
-const isBoyutSecimiDisabled= boyut !== "kucuk" && boyut !== "orta" && boyut !== "buyuk";
+const isBoyutSecimiDisabled= boyut !== "Küçük" && boyut !== "Orta" && boyut !== "Büyük";
 
 function handleHamurChange(event) {
   setHamur(event.target.value);
@@ -571,11 +578,11 @@ const hamurSecimiDisabled= hamur !== "ince" && hamur !== "kalin";
 
 function fiyatHesapla() {
   let boyutFiyat = 0;
-if (boyut === "kucuk") {
+if (boyut === "Küçük") {
   boyutFiyat = 85.5;
-} else if (boyut === "orta") {
+} else if (boyut === "Orta") {
   boyutFiyat = 125.5;
-} else if (boyut === "buyuk") {
+} else if (boyut === "Büyük") {
   boyutFiyat = 165.5;
 }
 let toplam=(boyutFiyat + secilenToplam) * adet;
@@ -603,12 +610,19 @@ axios.post("https://reqres.in/api/pizza", siparisOzeti, {
 })
   .then(response => {
     console.log("Başarılı:", response.data);
-
+     setSiparisId(response.data.id);
+     setSiparisTarihi(response.data.createdAt);
   })
   .catch(error => {
     console.error("Hata oluştu:", error);
+    history.push("/order");
+    alert("Sipariş verilirken bir hata oluştu. Lütfen tekrar deneyin.");
   });
   
+}
+
+function handleSiparisNotuChange(event) {
+  setSiparisNotu(event.target.value);
 }
 
   return (
@@ -621,7 +635,7 @@ axios.post("https://reqres.in/api/pizza", siparisOzeti, {
 </NavLinks>
       </Header>
       <Body id="body">
-<PizzaAdi>Position Absolute Acı Pizza</PizzaAdi>
+<PizzaAdi>{pizzaAdi}</PizzaAdi>
 <FiyatPuanYorum id="fiyatpuanyorum">
 <PizzaFiyati>85.50₺</PizzaFiyati>
 <PuanYorum id="puanyorum"> 
@@ -644,15 +658,15 @@ axios.post("https://reqres.in/api/pizza", siparisOzeti, {
       }}>*</span></BoyutSecimiYazisi>
    <BoyutSecenekleriDiv>
   <BoyutSecenekleriLabel>
-    <BoyutSecenekleri onChange={handleBoyutChange} type="radio" name="boyut" value="kucuk" />
+    <BoyutSecenekleri onChange={handleBoyutChange} type="radio" name="boyut" value="Küçük" />
     Küçük
   </BoyutSecenekleriLabel>
   <BoyutSecenekleriLabel>
-    <BoyutSecenekleri onChange={handleBoyutChange} type="radio" name="boyut" value="orta" />
+    <BoyutSecenekleri onChange={handleBoyutChange} type="radio" name="boyut" value="Orta" />
     Orta
   </BoyutSecenekleriLabel>
   <BoyutSecenekleriLabel>
-    <BoyutSecenekleri onChange={handleBoyutChange} type="radio" name="boyut" value="buyuk" />
+    <BoyutSecenekleri onChange={handleBoyutChange} type="radio" name="boyut" value="Büyük" />
     Büyük
   </BoyutSecenekleriLabel>
 </BoyutSecenekleriDiv>
@@ -748,7 +762,7 @@ axios.post("https://reqres.in/api/pizza", siparisOzeti, {
     <IsimInput onChange={handleIsimChange} type="text" name="isim" placeholder="İsminizi Yazınız" />
     <div id="isim-hata" style={{ color: "red" }}>{isim.length < 3 && isim.length > 0 ? "İsim en az 3 harf olmalıdır." : null}</div>
   </IsimAlani>
-  <SiparisNotuInput id="siparis-notu" placeholder="Siparişine eklemek istediğin bir not var mı?" />
+  <SiparisNotuInput onChange={handleSiparisNotuChange} id="siparis-notu" placeholder="Siparişine eklemek istediğin bir not var mı?" />
 </SiparisNotuAlani>
 <Cizgi id="cizgi"></Cizgi>
 <UcretAlani id="ucretalani">
