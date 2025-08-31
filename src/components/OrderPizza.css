@@ -109,3 +109,194 @@ width: 420px;
     margin-top: 40px;
 }
 }
+
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+.radio-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 56px;
+  width: 56px;
+  background-color: #FAF7F2;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  
+}
+
+
+.radio-container:hover input ~ .radio-checkmark {
+  background-color: #FFEECC;
+}
+
+
+.radio-container input:checked ~ .radio-checkmark {
+  background-color: #FFEECC;
+  color:#5F5F5F;
+}
+
+.radio-checkmark::after {
+  content: attr(data-text) }
+
+
+
+
+ 
+.custom-select {
+  width: 258px;
+  font-family: Arial, sans-serif;
+  position: relative;
+ 
+}
+
+.namespan{
+  margin-top: 15px;
+}
+
+.selected {
+  background: #faf7f2;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+}
+
+.selected.active {
+  border: 1px solid #ce2829;
+}
+
+.arrow {
+  font-size: 12px;
+  margin-left: 8px;
+  color: #5F5F5F;
+}
+
+.options {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: #ffeecc;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 100;
+  animation: fadeIn 0.2s ease;
+}
+
+.option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #FAF7F2;
+  color: black;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+.c-container {
+  display: flex;            
+  align-items: center;       
+  gap: 15px;                 
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+  position: relative;
+  padding-left: 55px;
+}
+
+
+
+/* Hide the browser's default checkbox */
+.c-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  
+}
+
+/* Create a custom checkbox */
+.c-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 45px;
+  width: 45px;  
+  background-color: #FAF7F2;
+  flex-shrink: 0;
+  
+}
+
+/* On mouse-over, add a grey background color */
+.c-container:hover input ~ .c-checkmark {
+  background-color: #ccc;
+
+}
+
+/* When the checkbox is checked, add a blue background */
+.c-container input:checked ~ .c-checkmark {
+  background-color: #FDC913;
+  
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.c-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.c-container input:checked ~ .c-checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.c-container .c-checkmark:after {
+  left: 25%;
+  top: 25%;
+  width: 15px;
+  height: 15px;
+  border: solid #000000;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  vertical-align: middle;
+  
+}

@@ -1,0 +1,87 @@
+@media (max-width: 540px) {
+    #footerbuyuk{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;      
+        height: auto;
+    
+        
+    }
+    #footer{
+        width: 540px;
+        height: 1251px;
+        align-items: center;
+        justify-content: flex-start;
+        
+    }
+
+    #uclualan{
+ display:block;
+        flex-direction: column;
+        flex-wrap: wrap;      
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        padding-left: 45px;
+        
+    }
+
+    #solalan{
+    height:310px;
+    width: 310px;
+    }
+
+    #ortaalan{     
+    height:310px ;
+    width: 310px;
+    margin-top: 30px;
+    }
+
+    #sagalan{
+    width: 310px;
+    height:310px ;
+    margin-top: 30px;
+    }
+     
+#kucukalan {
+  display: flex;
+    
+  align-items: center;
+  width: 100%;                    
+  margin: 20px auto;
+  height: 50px;
+  border: none;
+  margin-left: -375px;           
+}
+
+#alttext {
+  font-size: 16px;
+  color: #fff;
+  white-space: nowrap;             
+  margin-top: 20px;
+}
+
+#twlogo i {
+  font-size: 20px;
+  color: #fff;
+          
+  
+}
+#twlogodiv{
+    width: 30px;
+    height: 30px;
+        
+   display: flex;
+   justify-content: right;
+   margin-top: -53px;
+   margin-left: 195px;
+    margin-top: -45px;
+}
+
+#altcizgi{
+    width:500px;
+    border: 1px solid gray;
+    height: 1px;
+    margin-top: 100px;
+}
+}

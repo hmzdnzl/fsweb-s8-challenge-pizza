@@ -4,6 +4,26 @@
   padding: 0;
  
 }
+.kategori-2 {
+  background-color: white;
+  width: 146px;
+  height: 66px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.kategori-2-secilen {
+  background-color: #292929;
+  width: 146px;
+  height: 66px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  
+
+}
 
 @media (max-width: 540px) {
   #tumhomepage {
@@ -15,28 +35,180 @@
       overflow-x: hidden;
      overflow-y: auto; 
   }
-  #logo {
-    
-  }
+  
 
   #slogan {
     font-size: 66px;
     line-height: 70px;
-   
+   display: none;
     width: 398px;
     height: 318px;
     letter-spacing: 1.5px;
     margin-top: 20px;
-
   }
+
+  #logo {
+    margin-top: 0px;
+  }
+
+  #slogantext {
+font-size: 66px;
+    line-height: 70px;
+   font-weight: 200;
+    font-family: 'Roboto Condensed', sans-serif;
+   width: 398px;
+    height: 318px;
+    letter-spacing: 1.5px;
+    margin-top: 20px;
+  }
+
   #logobuttontext {
     width: 398px;
     height: 854px;
     
     gap: 5px;
-    margin-top: 100px;
+    margin-top: 80px;
   }
   #aciktim-button {
     margin-top: 0px;
   }
+
+  #kategoriler {
+      display: flex;
+    flex-direction: row;
+    width: 540px;
+    height: 208px;   
+    padding: 20px;
+    flex-wrap: wrap;
+    align-items: center;   
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 0 80px;
+    
+  }
+#govde {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 540px;
+  height: 3342px;
+  flex-wrap: wrap;
+}
+
+#cardswithbuttons {
+  display: flex;
+  flex-direction: column;
+   align-items: flex-start;
+  justify-content: flex-start;
+  gap: 15px;
+  height: 900px;
+  
+}
+
+#cardsmall {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  width: 540px;
+}
+
+#cardb{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  width:540px ;
+}
+
+#cardbimg{
+  width: 422px;
+  height: 336px;
+}
+
+#buttonb{
+  margin-top: 10px;
+}
+
+#cards1{
+  width: 422px;
+  height: 270px;
+  object-fit: contain;
+  background-image: url("/images/iteration-2-images/cta/2.png");
+  background-color:#292929;
+    background-size: contain;  
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 50%; 
+  
+}
+#cards2{
+  width: 422px;
+  height: 270px;  
+  background-image: url("/images/iteration-2-images/cta/kart-3.png");
+  background-size:cover;
+  background-size: 100%;  
+  background-repeat: no-repeat;
+  object-fit: contain;
+  
+  background-color: #FFEECC;
+}
+#slogan2adet{
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top:50px ;
+  
+}
+
+#slogan2{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 310px;
+  height: 56px;
+  font-family: "Barlow";
+  font-weight: 600;
+  
+}
+#govdekategoriler {
+  display: flex;
+    flex-direction: row;
+    width: 540px;
+    height: 168px;
+   
+    padding: 20px;
+    flex-wrap: wrap;
+    align-items: center;   
+    margin-top: 140px;
+    padding: 0 60px;
+  
+}
+#govdeurunler{
+  margin-top: 180px;
+  display: flex;
+  flex-direction: column;
+  width: 520px;
+height: 1650px;
+background-color: #FAF7F2
+  
+}
+
+#urun{
+  width: 520px;
+  height: 526px;
+  
+  background-color: white;
+  display: flex;
+  justify-content: center;
+
+}
+
+  
+
 }

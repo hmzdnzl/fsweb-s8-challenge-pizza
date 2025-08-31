@@ -4,34 +4,40 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import "./OrderPizza.css"
 import { useHistory } from "react-router-dom";
+import Footer from "./Footer"
 
 
 const Header = styled.header`
      background-color: #CE2829;
       background-size: cover;
       background-position: center;
-      height: 207px;
+      height: 138px;
       width: 100%;
       display: flex;
       text-align: center;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       position: relative;
 `;
-const Logo = styled.div`
-    background-image: url('/images/images-1/logo.svg');
-      background-size: cover;
-       background-position: center;
-       height: 50px;
-       width: 400px;
-       margin-top: 50px;
+const SiteAdi = styled.p`
+    width:463px;
+height:50px;
+font-weight:400;
+font-size:50px;
+font-family:"Londrina Solid";
+color: white;
+
+display: flex;
+align-items:center;
+justify-content: center;
+
       
 `;
 const NavLinks = styled.div`
-   display: flex,
-  justify-content: center;
-  align-items: flex-start;
-  position: relative;
+   
+   height: 40px;
+   display: flex;
+  flex-wrap:nowrap;
 
 `;
 const HomeLink = styled.a`
@@ -40,41 +46,59 @@ const HomeLink = styled.a`
       align-items: center;
       font-size: 16px;
       justify-content: center;
-      color: white;
-      margin-top: 167px;
-      margin-left: -780px;
+      color:#5F5F5F;      
       font-family: 'Barlow', sans-serif;
-    width: 73px;
+    width: 68px;
     height: 29px;
+    
 `;
 const OrderLink = styled.a`
      text-decoration: none;
-     font-weight: bold;
+     font-weight: 700;
      font-family: 'Barlow', sans-serif;
         display: inline-block;
         align-items: center;
         font-size: 16px;
         justify-content: center;
-        color: white;
-        margin-top: 167px;
-        margin-left: 0px;
-        
+        color: #CE2829;    
         width: 125px;
         height: 29px;
 `;
+const Body1=styled.div`
+width:100%;
+height:690px;
+
+display: flex;
+flex-direction:column;
+align-items: center; 
+justify-content: space-between;
+background-color:#FAF7F2;
+`;
+const ImgDiv=styled.div`
+margin-top:-72px;
+`;
+const Body1Inside=styled.div`
+width: 532px;
+height: 410px;
+
+display: flex;
+justify-content: left;
+align-items:left;
+flex-direction: column;
+`;
 const Body = styled.div`
     width: 532px;
-    height: 1340px;
-   
+    height: 1127px;
     margin: auto;
-    margin-top: 31px;
+    margin-top: 25px;
+    
 `;
 const PizzaAdi = styled.h1`
     font-family: 'Barlow', sans-serif;
     font-size: 22px;
     font-weight: semi-bold;
     line-height: 29.5px;
-    margin-bottom: 20px;
+   
     vertical-align: middle;
     width: 488px;
     height: 56px;
@@ -82,6 +106,7 @@ const PizzaAdi = styled.h1`
     letter-spacing: 0px;
     padding: 10px 0;
     font-weight: 600;
+    color:#292929;
 `;
 const FiyatPuanYorum = styled.div`
     display: flex;
@@ -89,9 +114,9 @@ const FiyatPuanYorum = styled.div`
     align-items: center;
     width: 532px;
     height: 56px;
-    padding: 10px 0;
+    
   
-    margin: -15px 0;
+    
 `;
 const PizzaFiyati = styled.h2`
     font-family: 'Barlow', sans-serif;
@@ -102,6 +127,7 @@ const PizzaFiyati = styled.h2`
     width: 106px;
     height: 37px;
     letter-spacing: 0%;
+    margin-top:15px;
 
 `;
 const PuanYorum=styled.div`
@@ -110,7 +136,7 @@ const PuanYorum=styled.div`
     align-items: center;
     width: 118px;
     height: 27px;
-    
+   margin-top:7px;
 
 `;
 const PizzaPuan = styled.div`
@@ -146,17 +172,18 @@ color:#5F5F5F
 const Aciklama=styled.p`
 font-family: 'Barlow', sans-serif;
 width: 532px;
-height:173px;
+height:214px;
 font-size: 16px;
 font-weight: 400;
 line-height: 28.8px;
 color: #5F5F5F;
 font-family: 'Barlow', sans-serif;
-margin-top: 15px;
+
+margin-top:35px;
 
 `;
 const BoyutHamur=styled.div`
-width: 428px;
+width: 100%;
 height: 155px;
 margin-top: 35px;
 display: flex;
@@ -182,12 +209,12 @@ vertical-align: middle;
 `;
 const BoyutSecenekleriDiv = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   
   width: 101px;
   height: 110px; 
-  gap: 5px;
+  gap: 47px;
   margin-top: 19px;
 
 `;
@@ -201,38 +228,47 @@ const BoyutSecenekleriLabel = styled.label`
 vertical-align: middle;
 font-weight: 500;
 font-family: 'Barlow', sans-serif;
+width: 56px;
+height: 56px;
 `;
 const BoyutSecenekleri=styled.input`
-width: 15px;
-height: 15px;
+width: 56px;
+height: 56px;
 display: flex;
 flex-direction: column;
 flex-wrap: nowrap;
-margin: 10px 1px;
+margin: 10px;
 justify-content: left;
 
 `;
 const Hamur=styled.div`
-width: 159px;
-height: 75px;
-
+width: 258px;
+height: 100px;
 row-gap: 1px;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
+justify-content:space-between;
 box-sizing: border-box;
+
+
 `;
-const HamurSecimiLabel = styled.label` 
+const HamurSecimiLabel = styled.div` 
   font-family: 'Barlow', sans-serif;
   font-size: 16px;
-  margin-top: 10px;
+  margin-top: 10px;  
+  width:258px;
+  
+  
  
 `;
 const EkMalzeme=styled.div`
-width: 486px;
-height: 81px;
+width: 532px;
+height: 68px;
 
-margin-top: 35px;
+margin-top: -15px;
+gap:10px;
+
 `;
 const EkMalzemelerBaslik= styled.p`
 font-family: 'Barlow', sans-serif;
@@ -259,16 +295,17 @@ const EkMalzemelerYazisi=styled.div`
 `;
 const EkMalzemeAlani=styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
 
   flex-wrap: wrap;
   
-  width: 524px;
-  height: 214px;
+  width: 552px;
+  height: 258x;
   
-  margin-top: 35px;
-  gap: 15px;
+  margin-top: 30px;
+  column-gap: 35px;
+  row-gap: 25px;
 `;
 const EkMalzemeSecenekleriLabel = styled.label`
   display: flex;
@@ -285,8 +322,7 @@ const EkMalzemeSecenekleriLabel = styled.label`
 color: #5F5F5F;
 `;
 const EkMalzemeSecenekleri=styled.input`
-width: 15px;
-height: 15px;
+
 display: flex;
 flex-direction: column;
 flex-wrap: nowrap;
@@ -297,7 +333,7 @@ const SiparisNotuAlani=styled.div`
   width: 531px;
   height: 137px;
   
-  margin-top: 1px;
+  margin-top: 45px;
   padding:0;
 `;
 const SiparisNotuBaslik=styled.p`
@@ -325,9 +361,10 @@ align-items: center;
 `;
 const IsimInput=styled.input`
   width: 100px;
-  height: 23px;
-  
+  height: 33px;
+  border:none;
   color: #292929;
+  background-color: #FAF7F2;
 `;
 const SiparisNotuInput=styled.textarea`
   width: 531px;
@@ -340,6 +377,9 @@ const SiparisNotuInput=styled.textarea`
   line-height: 19.2px;
   color: #292929
   resize: none;
+  border-radius: 6px;
+  background-color: #FAF7F2;
+  border:none;
 `;
 const Cizgi=styled.div`
   width: 100%;
@@ -376,6 +416,8 @@ const AdetAzalt=styled.button`
   height: 56px;  
   background-color: #FDC913;
   cursor: pointer;
+  border:none;
+  border-radius: 6px;
 `;
 const Adet=styled.div`
 width: 56px;
@@ -390,10 +432,13 @@ const AdetArttir=styled.button`
   height: 56px;  
   background-color: #FDC913;
   cursor: pointer;
+  border:none;
+  border-radius: 6px;
 `;
 const SiparisToplamiAlani=styled.div`
   width: 350px;
-  height: 160px;
+  height: 199px;
+  background-color:#FAF7F2;
   
 `;
 const UcretHesaplama=styled.div`
@@ -481,6 +526,9 @@ const SiparisVerButonu=styled.button`
   background-color: #FDC913;
   cursor: pointer;
   margin-top: -20px;
+  border:none;
+  border-radius: 6px;
+  
 `;
 const SecilenUcreti=styled.div`
   font-family: 'Barlow', sans-serif;
@@ -509,6 +557,8 @@ const ToplamTutar=styled.div`
   margin-right: 0px;
 `;
 export default function OrderPizza(props) {
+   const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState("");
   const { fiyat, setFiyat, 
     secim, setSecim, 
     adet, setAdet, 
@@ -571,10 +621,10 @@ function handleBoyutChange(event) {
 }
 const isBoyutSecimiDisabled= boyut !== "Küçük" && boyut !== "Orta" && boyut !== "Büyük";
 
-function handleHamurChange(event) {
-  setHamur(event.target.value);
+function handleHamurChange(value) {
+  setHamur(value);
 }
-const hamurSecimiDisabled= hamur !== "ince" && hamur !== "kalin";
+const hamurSecimiDisabled= hamur !== "İnce" && hamur !== "Kalın";
 
 function fiyatHesapla() {
   let boyutFiyat = 0;
@@ -591,7 +641,7 @@ setFiyat(toplam);
 useEffect(() => {
   fiyatHesapla();
   console.log(siparisOzeti);
-}, [boyut, secilenToplam, adet]);
+}, [boyut, secilenToplam, adet, hamur]);
 
 let siparisOzeti = {
   isim: isim,
@@ -624,18 +674,35 @@ axios.post("https://reqres.in/api/pizza", siparisOzeti, {
 function handleSiparisNotuChange(event) {
   setSiparisNotu(event.target.value);
 }
+  const options = [
+    { value: "İnce", label: "İnce" },
+    { value: "Kalın", label: "Kalın" },
+  ];
+  const handleSelect = (opt) => {
+    setSelected(opt.label);
+    setOpen(false);    
+    console.log("Seçilen hamur:", opt.value);
+  };
+
 
   return (
     <div className="orderpizzapage">
       <Header id="header">
-     <div id="logo-container"><Logo id="orderpagelogo" ></Logo></div>
+     <div id="logo-container"><SiteAdi id="orderpagelogo">Teknolojik Yemekler</SiteAdi></div>
+
+      </Header>
+      <Body1>
+        <ImgDiv>
+        <img src="images/iteration-2-images/pictures/form-banner.png" />
+        </ImgDiv>
+        <Body1Inside>
 <NavLinks id="navlinks">
-<HomeLink href="/">Anasayfa - </HomeLink>
+  
+<HomeLink href="/">Anasayfa</HomeLink> <span style={{color:"#5F5F5F"}}>-</span>&nbsp;
 <OrderLink href="/order">Sipariş Oluştur</OrderLink>
 </NavLinks>
-      </Header>
-      <Body id="body">
 <PizzaAdi>{pizzaAdi}</PizzaAdi>
+
 <FiyatPuanYorum id="fiyatpuanyorum">
 <PizzaFiyati>85.50₺</PizzaFiyati>
 <PuanYorum id="puanyorum"> 
@@ -648,6 +715,12 @@ function handleSiparisNotuChange(event) {
   Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . 
   Küçük bir pizzaya bazen pizzetta denir.
 </Aciklama>
+</Body1Inside>
+      </Body1>
+      <Body id="body">
+
+
+
 <BoyutHamur id="boyuthamur">
   <Boyut>
     <BoyutSecimiYazisi>Boyut Seç<span style={{ 
@@ -657,17 +730,20 @@ function handleSiparisNotuChange(event) {
       fontSize:"20px",
       }}>*</span></BoyutSecimiYazisi>
    <BoyutSecenekleriDiv>
-  <BoyutSecenekleriLabel>
+  <BoyutSecenekleriLabel className="radio-container">
     <BoyutSecenekleri onChange={handleBoyutChange} type="radio" name="boyut" value="Küçük" />
-    Küçük
+    
+    <span className="radio-checkmark" data-text="S"></span>
   </BoyutSecenekleriLabel>
-  <BoyutSecenekleriLabel>
+  <BoyutSecenekleriLabel className="radio-container">
     <BoyutSecenekleri onChange={handleBoyutChange} type="radio" name="boyut" value="Orta" />
-    Orta
+   
+    <span className="radio-checkmark" data-text="M"></span>
   </BoyutSecenekleriLabel>
-  <BoyutSecenekleriLabel>
+  <BoyutSecenekleriLabel className="radio-container">
     <BoyutSecenekleri onChange={handleBoyutChange} type="radio" name="boyut" value="Büyük" />
-    Büyük
+
+    <span className="radio-checkmark" data-text="L"></span>
   </BoyutSecenekleriLabel>
 </BoyutSecenekleriDiv>
   </Boyut>
@@ -678,12 +754,28 @@ function handleSiparisNotuChange(event) {
       fontWeight:"600",
       fontSize:"20px",
       }}>*</span></BoyutSecimiYazisi>
- <HamurSecimiLabel>
-    <select id="hamur-secimi" onChange={handleHamurChange} name="hamur" defaultValue="">
-      <option value="" disabled>Hamur Kalınlığı</option>
-      <option value="ince">İnce</option>
-      <option  value="kalin">Kalın</option>
-    </select>
+ <HamurSecimiLabel className="custom-select" >
+       <div className={`selected ${open ? "active" : ""}`} onClick={() => setOpen(!open)}>
+
+        {selected || "--Hamur Kalınlığı Seç--"}
+        <span className="arrow">{open ? "▲" : "▼"}</span>
+      </div>
+
+      {open && (
+<div className="options">
+  {options.map((opt)=>
+  (
+    <div key={opt.value} className={"option"} onClick={()=> {
+      setSelected(opt.label);
+      setOpen(false);
+      handleHamurChange(opt.value);
+    }}
+    > {opt.label}
+  </div>
+  )  )}
+</div>
+      )}
+   
   </HamurSecimiLabel>
   </Hamur>
 </BoyutHamur>
@@ -697,62 +789,89 @@ function handleSiparisNotuChange(event) {
 
 <EkMalzemeAlani id="ekmalzemealani">
   
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Pepperoni" />
-    Pepperoni
-  </EkMalzemeSecenekleriLabel>
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Tavuk Izgara" />
-    Tavuk Izgara
-  </EkMalzemeSecenekleriLabel>
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Mısır" />
-    Mısır
-  </EkMalzemeSecenekleriLabel>
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Sarımsak" />
-    Sarımsak
-  </EkMalzemeSecenekleriLabel>
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Ananas" />
-    Ananas
-  </EkMalzemeSecenekleriLabel>
-   <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Sosis" />
-    Sosis
-  </EkMalzemeSecenekleriLabel>
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Soğan" />
-    Soğan
-  </EkMalzemeSecenekleriLabel>
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Sucuk" />
-    Sucuk
-  </EkMalzemeSecenekleriLabel>
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Biber" />
-    Biber
-  </EkMalzemeSecenekleriLabel>
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Kabak" />
-    Kabak
-  </EkMalzemeSecenekleriLabel>
-   <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="KanadaJumbonu" />
-    Kanada Jumbonu
-  </EkMalzemeSecenekleriLabel>
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Domates" />
-    Domates
-  </EkMalzemeSecenekleriLabel>
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Jalepeno" />
-    Jalepeno
-  </EkMalzemeSecenekleriLabel>
-  <EkMalzemeSecenekleriLabel>
-    <EkMalzemeSecenekleri  onChange={handleSecimChange} type="checkbox" name="malzeme" value="Salam" />
-    Salam
-  </EkMalzemeSecenekleriLabel>
+  <EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Pepperoni" />
+  <span className="namespan">Pepperoni</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Tavuk Izgara" />
+  <span className="namespan">Tavuk Izgara</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Mısır" />
+  <span className="namespan">Mısır</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Sarımsak" />
+  <span className="namespan">Sarımsak</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Ananas" />
+  <span className="namespan">Ananas</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Sosis" />
+  <span className="namespan">Sosis</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Soğan" />
+  <span className="namespan">Soğan</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Sucuk" />
+  <span className="namespan">Sucuk</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Biber" />
+  <span className="namespan">Biber</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Kabak" />
+  <span className="namespan">Kabak</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="KanadaJumbonu" />
+  <span className="namespan">Kanada Jumbonu</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Domates" />
+  <span className="namespan">Domates</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Jalepeno" />
+  <span className="namespan">Jalepeno</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
+
+<EkMalzemeSecenekleriLabel className="c-container">
+  <EkMalzemeSecenekleri onChange={handleSecimChange} type="checkbox" name="malzeme" value="Salam" />
+  <span className="namespan">Salam</span>
+  <span className="c-checkmark"></span>
+</EkMalzemeSecenekleriLabel>
 
 
 </EkMalzemeAlani>
@@ -796,10 +915,8 @@ function handleSiparisNotuChange(event) {
   </SiparisToplamiAlani>
 </UcretAlani>
       </Body>
-<div>
+      <Footer/>
 
-
-</div>
     </div>
   );
 }
