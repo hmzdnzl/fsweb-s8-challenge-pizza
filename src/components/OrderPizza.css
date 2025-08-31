@@ -1,13 +1,23 @@
 @media (max-width: 540px) {
+html{
+  height: 100%;
+}
+
   .orderpizzapage {
     width: 100%;
-    height: 1917px; ;
+    
     box-sizing: border-box;
     overflow-x: hidden;    
+    
   }
   #navlinks {
     margin-left: 20px;
   }
+
+  #footerorder{
+
+  }
+
 #orderpagelogo {
   margin: 80px 50px;
   width: 80%;
@@ -26,10 +36,34 @@
 
 #body {
   width: 420px;
-  padding:0 5px;
+  padding: 0 5px;
   box-sizing: border-box;
   
-  height: 1488px;
+  height: 1500px !important;
+  max-height: none !important;
+  overflow: visible !important;
+
+}
+
+#body1{
+
+ 
+  
+}
+#body1inside{
+  display: flex;
+  padding-left:60px;
+}
+#img{
+  max-width:100%;
+  height: auto; 
+}
+#boyuthamur{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  
 }
 
 #fiyatpuanyorum {
@@ -46,25 +80,51 @@ height: 281px;
 }
 
 #boyuthamur {
-margin-top: -40px;
+margin-top: 180px;
 padding-right: 30px;
 padding-left: 5px;
 }
+#boyutyazisi{
+  margin-left: 50px;
+}
+#boyutsecenek{
+  margin-left:-15px ;
+}
+#hamursecyazi{
+  margin-left: 100px;
+}
+#hamurkalinligi{
+  margin-left: 15px;
+}
+
 #hamur-secimi {
 height: 30px;
+margin-top: -10px;
+margin-left: 10px;
 }
 
 #ekmalzemelerayazisi {
 width: 310px;
 height: 76px;
+margin-left: 100px;
+}
+
+#ekmalzemelerbaslik{
+  margin-left: 180px;
+  margin-top: 120px;
 }
 
 #ekmalzemealani {
   display: flex;
 width: 420px;
 height: 300px;
+margin-left: 80px;
+
 
 } 
+#siparisnotalani{
+  margin-top: 150px;
+}
 
 #siparis-notu {
   width: 420px;
@@ -89,15 +149,16 @@ margin-top: 50px;
 
 #ucrethesaplama {
 order:0;
-margin-left: -6px;
-width: 420px;
+margin-left: 0px;
+width: 100%;
+
 
 }
 #siparisadetialani {
   order: 1;
   width: 200px;
     height: 56px;
-    margin-top: 75px;
+    margin-top: 37px;
     margin-left: -5px;
 }
 

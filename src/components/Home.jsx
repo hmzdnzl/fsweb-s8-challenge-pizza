@@ -362,14 +362,14 @@ export default function Home() {
           <CardsImage id="cards1" >
            <CardsHeader>Hackathlon Burger Menü</CardsHeader>
           <Link to="/order">
-          <CardsButton>SİPARİŞ VER</CardsButton>
+          <CardsButton id="buttons">SİPARİŞ VER</CardsButton>
           </Link>
           </CardsImage>
 
            <Cards2Image id="cards2" >
            <Cards2Header><span style={{color:"red"}}>Çoooook</span> hızlı npm gibi kurye </Cards2Header>
           <Link to="/order">
-          <CardsButton>SİPARİŞ VER</CardsButton>
+          <CardsButton id="buttons">SİPARİŞ VER</CardsButton>
           </Link>
           </Cards2Image>
         </Cardsmall>

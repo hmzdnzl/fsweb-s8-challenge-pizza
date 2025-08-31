@@ -691,11 +691,11 @@ function handleSiparisNotuChange(event) {
      <div id="logo-container"><SiteAdi id="orderpagelogo">Teknolojik Yemekler</SiteAdi></div>
 
       </Header>
-      <Body1>
+      <Body1 id="body1">
         <ImgDiv>
-        <img src="images/iteration-2-images/pictures/form-banner.png" />
+        <img id="img" src="images/iteration-2-images/pictures/form-banner.png" />
         </ImgDiv>
-        <Body1Inside>
+        <Body1Inside id="body1inside">
 <NavLinks id="navlinks">
   
 <HomeLink href="/">Anasayfa</HomeLink> <span style={{color:"#5F5F5F"}}>-</span>&nbsp;
@@ -722,14 +722,14 @@ function handleSiparisNotuChange(event) {
 
 
 <BoyutHamur id="boyuthamur">
-  <Boyut>
-    <BoyutSecimiYazisi>Boyut Seç<span style={{ 
+  <Boyut id="boyutyazisec">
+    <BoyutSecimiYazisi id="boyutyazisi">Boyut Seç<span style={{ 
       color: "red", 
       fontFamily:"Barlow",
       fontWeight:"600",
       fontSize:"20px",
       }}>*</span></BoyutSecimiYazisi>
-   <BoyutSecenekleriDiv>
+   <BoyutSecenekleriDiv id="boyutsecenek">
   <BoyutSecenekleriLabel className="radio-container">
     <BoyutSecenekleri onChange={handleBoyutChange} type="radio" name="boyut" value="Küçük" />
     
@@ -748,13 +748,13 @@ function handleSiparisNotuChange(event) {
 </BoyutSecenekleriDiv>
   </Boyut>
   <Hamur>
-<BoyutSecimiYazisi>Hamur Seç<span style={{ 
+<BoyutSecimiYazisi id="hamursecyazi">Hamur Seç<span style={{ 
       color: "red", 
       fontFamily:"Barlow",
       fontWeight:"600",
       fontSize:"20px",
       }}>*</span></BoyutSecimiYazisi>
- <HamurSecimiLabel className="custom-select" >
+ <HamurSecimiLabel id="hamurkalinligi" className="custom-select" >
        <div className={`selected ${open ? "active" : ""}`} onClick={() => setOpen(!open)}>
 
         {selected || "--Hamur Kalınlığı Seç--"}
@@ -875,7 +875,7 @@ function handleSiparisNotuChange(event) {
 
 
 </EkMalzemeAlani>
-<SiparisNotuAlani>
+<SiparisNotuAlani id="siparisnotalani">
   <SiparisNotuBaslik>Sipariş Notu</SiparisNotuBaslik>
   <IsimAlani>İsminiz:
     <IsimInput onChange={handleIsimChange} type="text" name="isim" placeholder="İsminizi Yazınız" />
@@ -914,9 +914,11 @@ function handleSiparisNotuChange(event) {
 </Link>
   </SiparisToplamiAlani>
 </UcretAlani>
-      </Body>
-      <Footer/>
 
+      </Body>
+      
+<Footer id="footerorder"/>
     </div>
+    
   );
 }

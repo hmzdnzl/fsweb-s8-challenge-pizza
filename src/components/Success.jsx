@@ -210,13 +210,13 @@ export default function Success(props) {
 
       <Body id="body">
 
-        <Logo />
+        <Logo id="logo" />
         <LezzetinYolda>lezzetin yolda</LezzetinYolda>
         <TebrikDiv>
          
           <TebrikYazisi2>SİPARİŞ ALINDI</TebrikYazisi2>
         </TebrikDiv>
-        <Cizgi />
+        <Cizgi id="cizgi" />
         <PizzaAdi>{pizzaAdi}</PizzaAdi>
         <div style={{ display: "flex", 
           flexDirection: "column", 
