@@ -147,11 +147,14 @@ line-height: 32px;
   display: flex;
   align-items: center;
   padding-left: 420px;
+
 `;
 const TwitterLogo = styled.div`
   width: 24px;
   height: 24px;
+
   margin-left: 790px;
+
 `;
 export default function Footer() {
     return <div>
@@ -216,6 +219,7 @@ Istanbul Türkiye</Konum>
         </UcluAlan> 
       </FooterBuyukDiv>
       <span id="altcizgi"></span>
+
         <FooterKucukDiv id="kucukalan"><span id="alttext">© 2025 Teknolojik Yemekler.</span>
 
          
@@ -224,6 +228,7 @@ Istanbul Türkiye</Konum>
         <div id="twlogodiv"> <TwitterLogo id="twlogo">
             <i className="fa-brands fa-twitter"></i>
           </TwitterLogo></div>
+
       </FooterAlan>
 
     </div>
