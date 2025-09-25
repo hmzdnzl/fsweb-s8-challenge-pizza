@@ -146,15 +146,20 @@ line-height: 32px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
-  padding-left: 420px;
+  justify-content: space-between;
+  padding-right: 440px;
+  padding-left: 400px;
+ `;
 
-`;
+
+
 const TwitterLogo = styled.div`
   width: 24px;
   height: 24px;
-
-  margin-left: 790px;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 `;
 export default function Footer() {
     return <div>
@@ -220,14 +225,12 @@ Istanbul Türkiye</Konum>
       </FooterBuyukDiv>
       <span id="altcizgi"></span>
 
-        <FooterKucukDiv id="kucukalan"><span id="alttext">© 2025 Teknolojik Yemekler.</span>
-
-         
+        <FooterKucukDiv id="kucukalan">
+          <span id="alttext">© 2025 Teknolojik Yemekler.</span>
+          <TwitterLogo id="twlogo">
+            <i className="fa-brands fa-twitter" style={{ color: '#fff', fontSize: '24px' }}></i>
+          </TwitterLogo>
         </FooterKucukDiv>
-
-        <div id="twlogodiv"> <TwitterLogo id="twlogo">
-            <i className="fa-brands fa-twitter"></i>
-          </TwitterLogo></div>
 
       </FooterAlan>
 
